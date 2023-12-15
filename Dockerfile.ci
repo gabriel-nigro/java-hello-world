@@ -1,0 +1,9 @@
+FROM eclipse-temurin:17-jre-alpine as runtime
+
+LABEL maintainer="Gabriel Nigro Garbelini <gngarbelini@hotmail.com>"
+
+COPY /target/*.jar /app.jar
+
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS $JAVA_PROPS -jar app.jar" ]
+
+EXPOSE 8080
